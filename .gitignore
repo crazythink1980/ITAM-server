@@ -5,6 +5,8 @@
 *.rdb
 *.egg-info
 pyenv
+logs
+migrations
 #*#
 build
 source/_static*
