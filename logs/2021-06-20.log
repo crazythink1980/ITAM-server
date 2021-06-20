@@ -1,0 +1,71 @@
+2021/06/20 17:52:10 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 17:52:10 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 17:56:39 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 17:56:39] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 17:56:49 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 17:56:49] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 401 -
+2021/06/20 17:59:17 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 17:59:17 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 17:59:24 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 17:59:24] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 17:59:26 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 17:59:26] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 17:59:27 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 17:59:27] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 17:59:32 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 17:59:32] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:06:14 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:06:14] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:06:32 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:06:32] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:06:34 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:06:34] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:07:20 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:07:20] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:07:38 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:07:38 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:07:48 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:07:48] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:08:48 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:08:48 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:08:53 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:08:53] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:12:02 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:12:02 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:12:07 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:12:07] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:13:57 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:14:31 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:15:15 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:15:47 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:15:47 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:15:58 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:15:58] "[35m[1mPOST /api/user/ HTTP/1.1[0m" 201 -
+2021/06/20 18:16:08 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:16:08] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:16:10 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:16:10] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:19:14 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:19:14 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:19:18 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:19:18] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:20:10 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:20:10 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:20:14 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:20:14] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 18:21:55 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:21:55 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:21:59 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:21:59] "[35m[1mPOST /api/user/login HTTP/1.1[0m" 201 -
+2021/06/20 18:24:28 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:24:28] "[35m[1mPOST /api/user/login HTTP/1.1[0m" 201 -
+2021/06/20 18:24:35 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:24:35] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 401 -
+2021/06/20 18:32:23 flask_api __init__.py[20] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:32:23 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:32:29 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:32:29] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 401 -
+2021/06/20 18:32:38 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:32:38] "[35m[1mPOST /api/user/login HTTP/1.1[0m" 201 -
+2021/06/20 18:34:54 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:34:54] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 401 -
+2021/06/20 18:35:46 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:35:46] "[35m[1mPOST /api/user/login HTTP/1.1[0m" 201 -
+2021/06/20 18:44:45 root error.py[12] not_found() ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2021/06/20 18:44:45 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:44:45] "[33mPOST /login HTTP/1.1[0m" 404 -
+2021/06/20 18:45:05 root error.py[12] not_found() ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2021/06/20 18:45:05 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:45:05] "[33mPOST /login HTTP/1.1[0m" 404 -
+2021/06/20 18:50:36 root error.py[12] not_found() ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2021/06/20 18:50:36 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:50:36] "[33mPOST /login HTTP/1.1[0m" 404 -
+2021/06/20 18:50:42 root error.py[12] not_found() ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2021/06/20 18:50:42 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:50:42] "[33mPOST /login HTTP/1.1[0m" 404 -
+2021/06/20 18:50:57 root error.py[12] not_found() ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2021/06/20 18:50:57 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:50:57] "[33mPOST /login HTTP/1.1[0m" 404 -
+2021/06/20 18:55:02 flask_api __init__.py[24] create_app() INFO: Flask Rest Api startup
+2021/06/20 18:55:02 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 18:55:11 root error.py[12] not_found() ERROR: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2021/06/20 18:55:11 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 18:55:11] "[33mPOST /login HTTP/1.1[0m" 404 -
+2021/06/20 19:08:11 flask_api __init__.py[24] create_app() INFO: Flask Rest Api startup
+2021/06/20 19:08:11 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 19:12:54 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 19:12:54] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 19:13:19 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 19:13:19] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 19:13:42 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 19:13:42] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 19:13:54 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 19:13:54] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
+2021/06/20 19:19:04 flask_api __init__.py[24] create_app() INFO: Flask Rest Api startup
+2021/06/20 19:19:04 werkzeug _internal.py[225] _log() INFO:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021/06/20 19:19:12 werkzeug _internal.py[225] _log() INFO: 127.0.0.1 - - [20/Jun/2021 19:19:12] "[31m[1mPOST /api/user/login HTTP/1.1[0m" 422 -
