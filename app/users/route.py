@@ -37,13 +37,10 @@ def get_user_list():
 @users_bp.route('/login', methods=['POST'])
 def authenticate_user():
     try:
-        data = request.get_json(force=True)
-        # print(data)
+        data = request.get_json()
         current_user = User.find_by_username(data['username'])
         if not current_user:
-            return response_with(resp.SERVER_ERROR_404)
-        # print(current_user.password)
-        # print(data['password'])
+            return response_with(resp.SERVER_ERROR_404, message='用户名不存在！')
         if User.verify_hash(data['password'], current_user.password):
             access_token = create_access_token(identity=data['username'])
             return response_with(resp.SUCCESS_201,
@@ -54,7 +51,7 @@ def authenticate_user():
                                      }
                                  })
         else:
-            return response_with(resp.UNAUTHORIZED_401)
+            return response_with(resp.UNAUTHORIZED_401, message='密码不正确！')
     except Exception as e:
         print(e)
         return response_with(resp.INVALID_INPUT_422)
