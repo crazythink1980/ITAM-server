@@ -84,7 +84,8 @@ def response_with(response,
     if pagination is not None:
         result.update({'pagination': pagination})
 
-    headers.update({'Access-Control-Allow-Origin': '*'})
-    headers.update({'server': 'Flask REST API'})
+    # headers.update({'Access-Control-Allow-Origin': '*'})
+    # headers.update({'Access-Control-Allow-Methods': 'GET,POST'})
+    # headers.update({'server': 'Flask REST API'})
 
     return make_response(jsonify(result), response['http_code'], headers)
