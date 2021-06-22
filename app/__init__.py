@@ -11,11 +11,7 @@ def create_app():
     from . import db, utils, assets, users
     app = Flask(__name__)
     app.config.from_object(Config)
-    cors.init_app(app,
-                  supports_credentials=True,
-                  resources={r"/api/*": {
-                      "origins": "*"
-                  }})
+    cors.init_app(app)
     jwt.init_app(app)
     db.init_app(app)
     utils.init_app(app)
