@@ -23,11 +23,13 @@ class Asset(db.Model):
 class AssetType(db.Model):
     __tablename__ = 'asset_type'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    parent_id = db.Column(db.Integer)
     name = db.Column(db.String(20))
     assets = db.relationship('Asset', backref='type')
 
-    def __init__(self, name):
+    def __init__(self, name, parent_id=0):
         self.name = name
+        self.parent_id = parent_id
 
     def create(self):
         db.session.add(self)

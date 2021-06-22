@@ -78,7 +78,7 @@ def delete_asset(id):
     return response_with(resp.SUCCESS_204)
 
 
-@assets_bp.route('/assettype/', methods=['POST'])
+@assets_bp.route('/assettype', methods=['POST'])
 def create_asset_type():
     try:
         data = request.get_json()
@@ -92,9 +92,18 @@ def create_asset_type():
         return response_with(resp.INVALID_INPUT_422)
 
 
-@assets_bp.route('/assettype/', methods=['GET'])
+@assets_bp.route('/assettype', methods=['GET'])
 def get_asset_type_list():
-    fetched = AssetType.query.all()
+    id = request.args.get("id")
+    parent_id = request.args.get("parent_id")
+    if id is not None:
+        fetched = AssetType.query.filter_by(id=id).all()
+    else:
+        if parent_id is not None:
+            fetched = AssetType.query.filter_by(parent_id=parent_id).all()
+        else:
+            fetched = AssetType.query.all()
+
     asset_type_schema = AssetTypeSchema(many=True)
     result = asset_type_schema.dump(fetched)
     return response_with(resp.SUCCESS_200, value={"asset_type": result})
