@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required
 
 from app.utils.responses import response_with
 from app.utils import responses as resp
@@ -27,6 +27,7 @@ def create_user():
 
 
 @users_bp.route('/', methods=['GET'])
+@jwt_required()
 def get_user_list():
     fetched = User.query.all()
     user_schema = User_Schema(many=True, only=['id', 'login_name', 'username'])
