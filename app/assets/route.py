@@ -107,3 +107,16 @@ def get_asset_type_list():
     asset_type_schema = AssetTypeSchema(many=True)
     result = asset_type_schema.dump(fetched)
     return response_with(resp.SUCCESS_200, value={"asset_type": result})
+
+
+@assets_bp.route('/assettype', methods=['PUT'])
+def update_asset_type():
+    data = request.get_json()
+    get_asset_type = AssetType.query.get_or_404(data['id'])
+    get_asset_type.name = data['name']
+    get_asset_type.parent_id = data['parent_id']
+    db.session.add(get_asset_type)
+    db.session.commit()
+    asset_type_schema = AssetTypeSchema()
+    result = asset_type_schema.dump(get_asset_type)
+    return response_with(resp.SUCCESS_200, value={"asset_type": result})
