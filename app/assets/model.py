@@ -23,8 +23,9 @@ class Asset(db.Model):
 class AssetType(db.Model):
     __tablename__ = 'asset_type'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    parent_id = db.Column(db.Integer)
+    parent_id = db.Column(db.Integer, db.ForeignKey('asset_type.id'))
     name = db.Column(db.String(20))
+    children = db.relationship('AssetType')
     assets = db.relationship('Asset', backref='type')
 
     def __init__(self, name, parent_id=0):

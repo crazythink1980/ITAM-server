@@ -83,6 +83,14 @@ def create_asset_type():
     try:
         data = request.get_json()
         print(data)
+        # new_asset_type = AssetType(data['name'])
+
+        # if data.get('parent_id'):
+        #     parent_asset_type = AssetType.query.get(data['parent_id'])
+        #     new_asset_type.parent = parent_asset_type
+
+        # db.session.add(new_asset_type)
+        # db.session.commit()
         asset_type_schema = AssetTypeSchema()
         asset_type = asset_type_schema.load(data)
         result = asset_type_schema.dump(asset_type.create())
@@ -120,3 +128,12 @@ def update_asset_type():
     asset_type_schema = AssetTypeSchema()
     result = asset_type_schema.dump(get_asset_type)
     return response_with(resp.SUCCESS_200, value={"asset_type": result})
+
+
+@assets_bp.route('/assettype', methods=['DELETE'])
+def delete_asset_type():
+    data = request.get_json()
+    get_asset_type = AssetType.query.get_or_404(data['id'])
+    db.session.delete(get_asset_type)
+    db.session.commit()
+    return response_with(resp.SUCCESS_204)
