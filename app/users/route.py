@@ -11,7 +11,7 @@ from .schema import User_Schema
 users_bp = Blueprint('users', __name__)
 
 
-@users_bp.route('/', methods=['POST'])
+@users_bp.route('/users', methods=['POST'])
 def create_user():
     try:
         data = request.get_json()
@@ -26,7 +26,7 @@ def create_user():
         return response_with(resp.INVALID_INPUT_422)
 
 
-@users_bp.route('/', methods=['GET'])
+@users_bp.route('/users', methods=['GET'])
 @jwt_required()
 def get_user_list():
     fetched = User.query.all()
@@ -35,7 +35,7 @@ def get_user_list():
     return response_with(resp.SUCCESS_200, value={"users": users})
 
 
-@users_bp.route('/login', methods=['POST'])
+@users_bp.route('/users/login', methods=['POST'])
 def authenticate_user():
     try:
         data = request.get_json()

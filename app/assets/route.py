@@ -1,36 +1,55 @@
 from flask import Blueprint, request
-from .model import Asset, AssetType
-from .schema import AssetSchema, AssetTypeSchema
+from .model import Asset, AssetType, Computer
+from .schema import AssetSchema, AssetTypeSchema, ComputerSchema
 from app.utils.responses import response_with
 from app.utils import responses as resp
 from app.db import db
 
 assets_bp = Blueprint('assets', __name__)
+asset_types = {1: Computer}
+asset_type_schemas = {1: ComputerSchema}
 
 
-@assets_bp.route('/', methods=['POST'])
+@assets_bp.route('/assets', methods=['POST'])
 def create_asset():
+
     try:
         data = request.get_json()
         print(data)
-        asset_schema = AssetSchema()
+        asset_schema = asset_type_schemas.get(int(data["type"]), AssetSchema)()
         asset = asset_schema.load(data)
-        result = asset_schema.dump(asset.create())
-        return response_with(resp.SUCCESS_201, value={"asset": result})
+        db.session.add(asset)
+        db.session.commit()
+        result = asset_schema.dump(asset)
+        return response_with(resp.SUCCESS_201, value={"data": result})
     except Exception as e:
         print(e)
         return response_with(resp.INVALID_INPUT_422)
 
 
-@assets_bp.route('/', methods=['GET'])
+@assets_bp.route('/assets', methods=['GET'])
 def get_aasset_list():
-    fetched = Asset.query.all()
-    asset_schema = AssetSchema(many=True, only=['code', 'name', 'id', 'type'])
+    type = request.args.get("type")
+    if type is not None:
+        type = int(type)
+    else:
+        type = 0
+    asset = asset_types.get(int(type), Asset)
+    asset_schema = asset_type_schemas.get(int(type), AssetSchema)(many=True)
+
+    id = request.args.get("id")
+    if id is not None:
+        fetched = asset.query.filter_by(id=id).all()
+    else:
+        fetched = asset.query.all()
+    print(asset_schema)
+    print(fetched)
     assets = asset_schema.dump(fetched)
-    return response_with(resp.SUCCESS_200, value={"assets": assets})
+    print(assets)
+    return response_with(resp.SUCCESS_200, value={"data": assets})
 
 
-@assets_bp.route('/<int:asset_id>', methods=['GET'])
+@assets_bp.route('/assets/<int:asset_id>', methods=['GET'])
 def get_asset_detail(asset_id):
     fetched = Asset.query.get_or_404(asset_id)
     asset_schema = AssetSchema()
@@ -38,7 +57,7 @@ def get_asset_detail(asset_id):
     return response_with(resp.SUCCESS_200, value={"asset": asset})
 
 
-@assets_bp.route('/<int:id>', methods=['PUT'])
+@assets_bp.route('/assets/<int:id>', methods=['PUT'])
 def update_asset_detail(id):
     data = request.get_json()
     get_asset = Asset.query.get_or_404(id)
@@ -52,7 +71,7 @@ def update_asset_detail(id):
     return response_with(resp.SUCCESS_200, value={"asset": asset})
 
 
-@assets_bp.route('/<int:id>', methods=['PATCH'])
+@assets_bp.route('/assets/<int:id>', methods=['PATCH'])
 def modify_asset_detail(id):
     data = request.get_json()
     get_asset = Asset.query.get(id)
@@ -70,7 +89,7 @@ def modify_asset_detail(id):
     return response_with(resp.SUCCESS_200, value={"asset": asset})
 
 
-@assets_bp.route('/<int:id>', methods=['DELETE'])
+@assets_bp.route('/assets/<int:id>', methods=['DELETE'])
 def delete_asset(id):
     get_asset = Asset.query.get_or_404(id)
     db.session.delete(get_asset)
@@ -78,19 +97,10 @@ def delete_asset(id):
     return response_with(resp.SUCCESS_204)
 
 
-@assets_bp.route('/assettype', methods=['POST'])
+@assets_bp.route('/assets/assettype', methods=['POST'])
 def create_asset_type():
     try:
         data = request.get_json()
-        print(data)
-        # new_asset_type = AssetType(data['name'])
-
-        # if data.get('parent_id'):
-        #     parent_asset_type = AssetType.query.get(data['parent_id'])
-        #     new_asset_type.parent = parent_asset_type
-
-        # db.session.add(new_asset_type)
-        # db.session.commit()
         asset_type_schema = AssetTypeSchema()
         asset_type = asset_type_schema.load(data)
         result = asset_type_schema.dump(asset_type.create())
@@ -100,7 +110,7 @@ def create_asset_type():
         return response_with(resp.INVALID_INPUT_422)
 
 
-@assets_bp.route('/assettype', methods=['GET'])
+@assets_bp.route('/assets/assettype', methods=['GET'])
 def get_asset_type_list():
     id = request.args.get("id")
     parent_id = request.args.get("parent_id")
@@ -117,7 +127,7 @@ def get_asset_type_list():
     return response_with(resp.SUCCESS_200, value={"asset_type": result})
 
 
-@assets_bp.route('/assettype', methods=['PUT'])
+@assets_bp.route('/assets/assettype', methods=['PUT'])
 def update_asset_type():
     data = request.get_json()
     get_asset_type = AssetType.query.get_or_404(data['id'])
@@ -130,10 +140,10 @@ def update_asset_type():
     return response_with(resp.SUCCESS_200, value={"asset_type": result})
 
 
-@assets_bp.route('/assettype', methods=['DELETE'])
+@assets_bp.route('/assets/assettype', methods=['DELETE'])
 def delete_asset_type():
     data = request.get_json()
     get_asset_type = AssetType.query.get_or_404(data['id'])
     db.session.delete(get_asset_type)
     db.session.commit()
-    return response_with(resp.SUCCESS_204)
+    return response_with(resp.SUCCESS_200)

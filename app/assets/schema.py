@@ -1,6 +1,6 @@
 from marshmallow import fields, pre_dump
 
-from .model import Asset, AssetType
+from .model import Asset, AssetType, Computer
 from app.db import db, marshmallow
 
 
@@ -28,7 +28,13 @@ class AssetSchema(marshmallow.SQLAlchemyAutoSchema):
     class Meta:
         model = Asset
         load_instance = True
-        include_relationships = True
 
-    type = fields.Nested(AssetTypeSchema)
-    type_id = fields.Integer()
+    id = fields.Integer(dump_only=True)
+
+
+class ComputerSchema(marshmallow.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Computer
+        load_instance = True
+
+    id = fields.Integer(dump_only=True)
