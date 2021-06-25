@@ -8,7 +8,7 @@ jwt = JWTManager()
 
 
 def create_app():
-    from . import db, utils, assets, users
+    from . import db, utils, assets, dept, users
     app = Flask(__name__)
     app.config.from_object(Config)
     cors.init_app(app)
@@ -16,6 +16,7 @@ def create_app():
     db.init_app(app)
     utils.init_app(app)
     assets.init_app(app)
+    dept.init_app(app)
     users.init_app(app)
     app.logger.info('Flask Rest Api startup')
     return app

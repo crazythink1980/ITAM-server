@@ -1,12 +1,16 @@
 from app.db import db
 
 
-#部门
+# 部门
 class Dept(db.Model):
     __tablename__ = 'dept'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(20), nullable=False, unique=True)
-    parent_id = db.Column(db.Integer, db.ForeignKey('dept.id'))
+    name = db.Column(db.String(20),
+                     nullable=False,
+                     unique=True,
+                     comment='部门名称')  # 部门名称
+    parent_id = db.Column(db.Integer, db.ForeignKey('dept.id'),
+                          comment='上级部门')  # 上级部门
     children = db.relationship('Dept')
 
     def __init__(self, name, parent_id=0):

@@ -5,11 +5,22 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    login_name = db.Column(db.String(45), nullable=False, unique=True)
-    username = db.Column(db.String(45), nullable=False)
-    password = db.Column(db.String(256), nullable=False)
+    login_name = db.Column(db.String(45),
+                           nullable=False,
+                           unique=True,
+                           comment='登录用户名')  # 登录用户名
+    username = db.Column(db.String(45), nullable=False,
+                         comment='显示用户名')  # 显示用户名
+    password = db.Column(db.String(256), nullable=False, comment='密码')  # 密码
     active = db.Column(db.Boolean, default=True, nullable=False)
-    created = db.Column(db.DateTime, server_default=db.func.now())
+    create_time = db.Column(db.DateTime,
+                            default=db.func.now(),
+                            comment='记录的创建时间')  # 记录的创建时间
+    update_time = db.Column(db.DateTime,
+                            nullable=False,
+                            default=db.func.now(),
+                            onupdate=db.func.now(),
+                            comment='记录的更新时间')  # 记录的更新时间
 
     def __init__(self, login_name, username, password, active=True):
         self.login_name = login_name
