@@ -8,13 +8,16 @@ jwt = JWTManager()
 
 
 def create_app():
-    from . import db, utils, assets, dept, users
+    from . import db, utils, assets, assettype, place, dept, users
     app = Flask(__name__)
     app.config.from_object(Config)
+
     cors.init_app(app)
     jwt.init_app(app)
     db.init_app(app)
     utils.init_app(app)
+    assettype.init_app(app)
+    place.init_app(app)
     assets.init_app(app)
     dept.init_app(app)
     users.init_app(app)
