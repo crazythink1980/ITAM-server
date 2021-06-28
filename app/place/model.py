@@ -11,7 +11,7 @@ class Place(db.Model):
                      comment='位置名称')  # 位置名称
     parent_id = db.Column(db.Integer, db.ForeignKey('place.id'),
                           comment='父位置')  # 父位置
-    #children = db.relationship('Place')
+    # children = db.relationship('Place')
     parent = db.relationship('Place', remote_side=[id], backref='children')
 
     def __init__(self, name, parent_id=0):

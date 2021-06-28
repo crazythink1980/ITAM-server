@@ -1,6 +1,8 @@
 from app.db import db
 import datetime as dt
 
+from app.place.model import Place
+
 
 # 资产总表
 class Asset(db.Model):
@@ -34,6 +36,8 @@ class Asset(db.Model):
                             default=db.func.now(),
                             onupdate=db.func.now(),
                             comment='记录的更新时间')  # 记录的更新时间
+
+    place_obj = db.relationship(Place)
 
     __mapper_args__ = {
         #        "polymorphic_identity": '0',  # 指定了多态表哪个字段区分该条记录是属于哪个继承表

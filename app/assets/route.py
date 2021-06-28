@@ -28,6 +28,7 @@ def create_asset():
         data = request.get_json()
         asset_schema = asset_type_schemas.get(data["type"], AssetSchema)()
         asset = asset_schema.load(data)
+        print(asset)
         db.session.add(asset)
         db.session.commit()
         result = asset_schema.dump(asset)
