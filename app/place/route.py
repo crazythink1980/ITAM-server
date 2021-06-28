@@ -12,14 +12,8 @@ place_bp = Blueprint('place', __name__)
 def create_place():
     try:
         data = request.get_json()
-
-        place = Place(data["name"])
-
-        if (data["parent_id"] != 0):
-            parentPlace = Place.query.get_or_404(data['parent_id'])
-            place.parent = parentPlace
-
-        place_schema = PlaceSchema(only=('id', 'name', 'parent_id'))
+        place_schema = PlaceSchema()
+        place = place_schema.load(data)
         result = place_schema.dump(place.create())
         return response_with(resp.SUCCESS_201, value={"data": result})
     except Exception as e:
@@ -34,13 +28,11 @@ def get_place_list():
 
     if id is not None:
         fetched = Place.query.filter_by(id=id).first()
-        place_schema = PlaceSchema(only=('id', 'name', 'parent_id', 'parent'))
+        place_schema = PlaceSchema()
     else:
         if parent_id is not None:
             fetched = Place.query.filter_by(parent_id=parent_id).all()
-            place_schema = PlaceSchema(many=True,
-                                       only=('id', 'name', 'parent_id',
-                                             'children'))
+            place_schema = PlaceSchema(many=True)
         else:
             return response_with(resp.INVALID_INPUT_422)
 

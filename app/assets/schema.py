@@ -1,4 +1,4 @@
-from marshmallow import fields
+from marshmallow import fields, post_dump
 
 from .model import Asset, Computer, Printer, Server, NetDevice, SecDevice
 from app.db import marshmallow
@@ -19,6 +19,23 @@ class AssetSchema(marshmallow.SQLAlchemyAutoSchema):
     product_date = fields.Date()
     expire_date = fields.Date()
     trade_date = fields.Date()
+
+    # @post_dump()
+    # def add_place_name(self, data, **kwargs):
+    #     place_name = ''
+    #     place_id = []
+    #     if data['place_obj']:
+    #         place_obj = data['place_obj']
+    #         while place_obj:
+    #             place_name = place_obj['name'] + '/' + place_name
+    #             place_id.append(place_obj['id'])
+    #             place_obj = place_obj['parent']
+    #         place_id.append(0)
+    #         place_id.reverse()
+    #         data['place_name'] = place_name[0:-1]
+    #         data['place_id'] = place_id
+    #         data.pop('place_obj')
+    #     return data
 
 
 class ComputerSchema(AssetSchema):
