@@ -92,7 +92,7 @@ def delete_asset():
     get_asset = Asset.query.get_or_404(id)
     db.session.delete(get_asset)
     db.session.commit()
-    return response_with(resp.SUCCESS_204, message='Record has been delete.')
+    return response_with(resp.SUCCESS_200, message='Record has been delete.')
 
 
 @assets_bp.route('/assets/detail', methods=['GET'])
